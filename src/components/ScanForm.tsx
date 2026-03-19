@@ -41,18 +41,18 @@ export function ScanForm({ onScan, isScanning }: ScanFormProps) {
       <CardContent>
         <form onSubmit={handleSubmit}>
           <Tabs value={activeTab} onValueChange={setActiveTab} className="w-full">
-            <TabsList className="grid w-full grid-cols-3">
-              <TabsTrigger value="github" className="flex items-center gap-2">
-                <Github className="h-4 w-4" />
-                GitHub Repo
+            <TabsList className="grid w-full grid-cols-3 h-auto">
+              <TabsTrigger value="github" className="flex flex-col sm:flex-row items-center gap-1 sm:gap-2 py-2 px-1 sm:px-3">
+                <Github className="h-4 w-4 flex-shrink-0" />
+                <span className="text-xs sm:text-sm leading-tight">GitHub</span>
               </TabsTrigger>
-              <TabsTrigger value="zip" className="flex items-center gap-2">
-                <FileArchive className="h-4 w-4" />
-                Upload ZIP
+              <TabsTrigger value="zip" className="flex flex-col sm:flex-row items-center gap-1 sm:gap-2 py-2 px-1 sm:px-3">
+                <FileArchive className="h-4 w-4 flex-shrink-0" />
+                <span className="text-xs sm:text-sm leading-tight">ZIP</span>
               </TabsTrigger>
-              <TabsTrigger value="paste" className="flex items-center gap-2">
-                <Code className="h-4 w-4" />
-                Paste Code
+              <TabsTrigger value="paste" className="flex flex-col sm:flex-row items-center gap-1 sm:gap-2 py-2 px-1 sm:px-3">
+                <Code className="h-4 w-4 flex-shrink-0" />
+                <span className="text-xs sm:text-sm leading-tight">Paste</span>
               </TabsTrigger>
             </TabsList>
 

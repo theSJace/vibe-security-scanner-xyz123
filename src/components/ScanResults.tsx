@@ -56,16 +56,24 @@ export function ScanResults({ checks }: ScanResultsProps) {
     'rls': 'Row Level Security'
   }
 
+  const categoryLabelsShort: Record<string, string> = {
+    'api-keys': 'API',
+    'rate-limiting': 'Rate',
+    'input-sanitization': 'Input',
+    'rls': 'RLS'
+  }
+
   return (
     <div className="space-y-6">
       <Tabs defaultValue={checks.find(c => c.issues.length > 0)?.id || checks[0]?.id} className="w-full">
-        <TabsList className="grid w-full grid-cols-2 lg:grid-cols-4">
+        <TabsList className="grid w-full grid-cols-2 lg:grid-cols-4 h-auto">
           {checks.map((check) => (
-            <TabsTrigger key={check.id} value={check.id} className="flex items-center gap-2">
+            <TabsTrigger key={check.id} value={check.id} className="flex items-center gap-1 sm:gap-2 py-2 px-1 sm:px-3">
               {getStatusIcon(check.status)}
-              <span className="hidden sm:inline">{categoryLabels[check.category]}</span>
+              <span className="sm:hidden text-xs">{categoryLabelsShort[check.category]}</span>
+              <span className="hidden sm:inline text-sm">{categoryLabels[check.category]}</span>
               {check.issues.length > 0 && (
-                <Badge variant="secondary" className="ml-1 text-xs">
+                <Badge variant="secondary" className="ml-0.5 sm:ml-1 text-xs">
                   {check.issues.length}
                 </Badge>
               )}
